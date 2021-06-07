@@ -1,0 +1,37 @@
+<div class="card my-5">
+  <div class="card-body">
+    <div *ngIf="!carNotFound">
+      <div class="form-group">
+        <label>Make:</label>
+        {{car.make}}
+      </div>
+
+      <div class="form-group">
+        <label>Model:</label>
+        {{car.model}}
+      </div>
+
+      <div class="form-group">
+        <label>Color:</label>
+        {{car.color}}
+      </div>
+
+      <div class="form-group">
+        <label>Year:</label>
+        {{car.year}}
+      </div>
+
+      <div class="form-group">
+        <label>Sounds Like: </label>
+        {{car.soundsLike}}
+      </div>
+    </div>
+
+    <div *ngIf="carNotFound">
+      <h1>There is no car with this id: {{id}}</h1>
+    </div>
+    <br>
+    <a routerLink="/cars" class="btn btn-info">Back To Car List</a>
+  </div>
+
+</div>

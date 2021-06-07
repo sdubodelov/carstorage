@@ -1,0 +1,57 @@
+<div class="card my-5">
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit()" #carForm="ngForm" *ngIf="!carNotFound">
+      <div class="form-group">
+        <label for="make">Make</label>
+        <input type="text" [(ngModel)]="car.make"
+               class="form-control"
+               id="make"
+               name="make"
+               placeholder="Enter car make"
+               required #make="ngModel">
+        <div [hidden]="!make.pristine" class="alert alert-danger">Make is required</div>
+      </div>
+
+      <div class="form-group">
+        <label for="model">Model</label>
+        <input type="text" [(ngModel)]="car.model"
+               class="form-control"
+               id="model"
+               name="model"
+               placeholder="Enter car Model"
+               required #model="ngModel">
+        <div [hidden]="!model.pristine" class="alert alert-danger">Model is required</div>
+      </div>
+
+      <div class="form-group">
+        <label for="color">Color</label>
+        <input type="text" [(ngModel)]="car.color"
+               class="form-control"
+               id="color"
+               name="color"
+               placeholder="Enter car Color"
+               required #color="ngModel">
+      </div>
+
+      <div class="form-group">
+        <label for="year">Year</label>
+        <input type="text" [(ngModel)]="car.year"
+               class="form-control"
+               id="year"
+               name="year"
+               placeholder="Enter car Year"
+               required #model="ngModel">
+      </div>
+      <a routerLink="/cars" class="btn btn-info btn-light">Back to Cars List</a>
+      <button type="submit" [disabled]="!carForm.form.valid"
+              class="btn btn-info">Submit</button>
+    </form>
+
+    <div *ngIf="carNotFound">
+      <h1>There is no car with this id: {{id}}</h1>
+      <br>
+      <a routerLink="/cars" class="btn btn-info">List Car</a>
+    </div>
+
+  </div>
+</div>
